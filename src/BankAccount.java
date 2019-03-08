@@ -37,16 +37,6 @@ public class BankAccount extends JFrame
 		nameInput.setBounds(65, 30, 150, 25);
 		add(nameInput);
 		
-		JButton accCreate = new JButton("Create Account");
-		accCreate.setBounds(20, 130, 130, 25);
-		add(accCreate);
-		accCreate.addActionListener(new ActionListener() { 
-			public void actionPerformed (ActionEvent e)
-				{
-					name = nameInput.getText();
-				}
-			});
-		
 		JButton displayAcc = new JButton("Display All Accounts");
 		displayAcc.setBounds(160, 130, 160, 25);
 		add(displayAcc);
@@ -61,6 +51,21 @@ public class BankAccount extends JFrame
 		box.addItem("Savings Account");
 		box.setBounds(110, 65, 130, 20);
 		add(box);
+		
+		JButton accCreate = new JButton("Create Account");
+		accCreate.setBounds(20, 130, 130, 25);
+		add(accCreate);
+		accCreate.addActionListener(new ActionListener() { 
+			public void actionPerformed (ActionEvent e)
+				{
+					name = nameInput.getText();
+					balance = Double.parseDouble(balanceInput.getText);
+					if ((box.getSelectedItem).equals("Checking Account"))
+					{
+						
+					}
+				}
+			});
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
