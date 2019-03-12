@@ -37,10 +37,6 @@ public class BankAccount extends JFrame
 		nameInput.setBounds(65, 30, 150, 25);
 		add(nameInput);
 		
-		JButton displayAcc = new JButton("Display All Accounts");
-		displayAcc.setBounds(160, 130, 160, 25);
-		add(displayAcc);
-		
 		JTextField balanceInput = new JTextField();
 		balanceInput.setBounds(110, 90, 150, 25);
 		add(balanceInput);
@@ -62,10 +58,35 @@ public class BankAccount extends JFrame
 					balance = Double.parseDouble(balanceInput.getText);
 					if ((box.getSelectedItem).equals("Checking Account"))
 					{
-						
+						accounts.add(new CheckingAccount(name, balance, 0, 0, 0));
+					}
+					if ((box.getSelectedItem).equals("Savings Account"))
+					{
+						accounts.add(new SavingsAccount(name, balance, 0, 0, 0));
 					}
 				}
 			});
+			
+		JButton displayAcc = new JButton("Display All Accounts");
+		displayAcc.setBounds(160, 130, 160, 25);
+		add(displayAcc);
+		displayAcc.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e)
+			{
+				String accDisplay = "";
+				int size = 0;
+				JLabel display = new JLabel("Accounts: ");
+				for (int i = 0; i < accounts.size; i++)
+				{
+					accDisplay += (accounts.get(i)).toString() + "\n";			
+					size += 1;
+				}
+				display.setBounds(20, 160, 160, ((25)*size));
+				display.setText(accDisplay);
+				add(display);
+	 		}
+		
+		});
 		
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
